@@ -4,6 +4,7 @@ class Dirmapper < Formula
   url "https://github.com/nashdean/dirmap/archive/refs/tags/v1.0.7.tar.gz"
   sha256 "f41a4e5f8f48bc1d0843286c3821c3d9748a57b7fa50bfd6ef5ce6a4bb6c9bb5"
   license "MIT"
+  version "v1.0.7"
 
   depends_on "python@3.9"
 
@@ -12,6 +13,7 @@ class Dirmapper < Formula
     (bin/"dirmap").write <<~EOS
       #!/bin/bash
       export PYTHONPATH=#{libexec}
+      export DIRMAPPER_VERSION=#{version}
       python3 #{libexec}/dirmapper/main.py "$@"
     EOS
     chmod 0755, bin/"dirmap"
