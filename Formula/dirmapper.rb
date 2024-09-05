@@ -5,7 +5,7 @@ class Dirmapper < Formula
   sha256 "f41a4e5f8f48bc1d0843286c3821c3d9748a57b7fa50bfd6ef5ce6a4bb6c9bb5"
   license "MIT"
 
-  depends_on "python@3.12"
+  depends_on "python@3.9"
 
   def install
     bin.install "src/dirmapper/main.py" => "dirmap"
