@@ -9,6 +9,7 @@ class Dirmapper < Formula
 
   def install
     bin.install "src/dirmapper/main.py" => "dirmap"
+    chmod +x, bin/dirmap
     system "pip3", "install", "-r", "requirements.txt"
   end
 
