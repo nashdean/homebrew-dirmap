@@ -12,7 +12,7 @@ class Dirmapper < Formula
     (bin/"dirmap").write <<~EOS
       #!/bin/bash
       export PYTHONPATH=#{libexec}
-      python3 #{libexec}/dirmapper/main.py ""
+      python3 #{libexec}/dirmapper/main.py "$@"
     EOS
     chmod 0755, bin/"dirmap"
   end
