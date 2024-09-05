@@ -8,13 +8,11 @@ class Dirmapper < Formula
   depends_on "python@3.9"
 
   def install
-    libexec.install "src/dirmapper/main.py"
-    libexec.install Dir["src/dirmapper/**/*.py"]
-    chmod 0755, libexec/"main.py"
+    libexec.install Dir["src/dirmapper"]
     (bin/"dirmap").write <<~EOS
       #!/bin/bash
       export PYTHONPATH=#{libexec}
-      python3 #{libexec}/main.py ""
+      python3 #{libexec}/dirmapper/main.py ""
     EOS
     chmod 0755, bin/"dirmap"
   end
