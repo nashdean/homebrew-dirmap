@@ -8,9 +8,13 @@ class Dirmapper < Formula
   depends_on "python@3.9"
 
   def install
-    bin.install "src/dirmapper/main.py" => "dirmap"
+    libexec.install "src/dirmapper/main.py"
+    chmod 0755, libexec/"main.py"
+    (bin/"dirmap").write <<~EOS
+      #!/bin/bash
+      python3 #{libexec}/main.py ""
+    EOS
     chmod 0755, bin/"dirmap"
-    system "pip3", "install", "-r", "requirements.txt"
   end
 
   test do
